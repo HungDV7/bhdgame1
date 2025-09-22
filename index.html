@@ -94,7 +94,6 @@
     <div id="answer" class="answer"></div>
     <div id="timer" class="timer"></div>
     <button id="startBtn" onclick="startGame()" style="display:none">Bắt đầu</button>
-    <button id="nextBtn" onclick="nextQuestion()" style="display:none">Tiếp tục</button>
   </div>
 
   <script>
@@ -107,21 +106,22 @@
       "Toán học"
     ];
 
+
     const packages = [
       [
-        { q: 'Hai / Cá / Tay / Bắt', a: 'Bắt cá hai tay' },
-        { q: 'Rã / Cả / Thấy / Chớ / Chèo / Sóng / Tay / Mà', a: 'Chớ thấy sóng cả mà rã tay chèo' },
-        { q: 'Sợ / Ngay / Không / Cây / Đứng / Chết ', a: 'Cây ngay không sợ chết đứng' },
-        { q: 'Mười / Chín / Bỏ / Làm', a: 'Chín bỏ làm mười' },
-        { q: 'Công / Có / Kim / Sắt / Mài / Có / Nên / Ngày', a: 'Có công mài sắt có ngày nên kim' },
+        { q: 'Túng / Liều / Làm / Ăn / Đói / Vụng', a: 'Đói ăn vụng túng làm liều' },
+        { q: 'Có / Gà / Nhà / Thì / Chống / Ráng / Mỡ', a: 'Ráng mỡ gà có nhà thì chống' },
+        { q: 'Đắm / Cá / Đuối / Con / Vì / Chuối ', a: 'Cá chuối đắm đuối vì con' },
+        { q: 'Ấm / Cũng / Nằm / Nắng / To / Co', a: 'Nắng to nằm co cũng ấm' },
+        { q: 'Bạn / Tri / Bè / Nghĩa / Là / Tương', a: 'Bạn bè là nghĩa tương tri' },
         { q: 'Mua / Em / Gần / Giềng / Bán / Xa / Anh / Láng', a: 'Bán anh em xa mua láng giềng gần' },
-        { q: 'Thơm / Rách / Cho / Đói / Sạch / Cho', a: 'Đói cho sạch rách cho thơm' },
-        { q: 'Ai / Nhà / Nhà / Đèn / Rạng / Nấy', a: 'Đèn nhà ai nhà nấy rạng' },
-        { q: 'Càng / Gừng / Cay / Càng / Già', a: 'Gừng càng già càng cay' },
-        { q: 'Mặn / Cha / Khát / Đời / Nước / Đời / Ăn / Con', a: 'Đời cha ăn mặn đời con khát nước' }
+        { q: 'Sáng / Ráo / Đầu / Ướt / Trưa /Áo', a: 'Sáng ướt áo trưa ráo đầu' },
+        { q: 'Cũng / Kể / Là / Dâu / Dâu / Con / Rể / Rể', a: 'Dâu dâu rể rể cũng kể là con' },
+        { q: 'Về / Chú / Dối / Nhà / Cha/ Đi / Dối', a: 'Đi dối cha về dối chú' },
+        { q: 'Được / Bán / Thua / Người / Mua / Người', a: 'Được người mua thua người bán' }
       ],
       [
-        { q: 'Rồi / Nhịn / Mày / Lâu / Nhé / Bố / Đấy / Mày / Lắm', a: 'Bố mày nhịn mày lâu lắm rồi đấy nhé' },
+        { q: 'Rồi / Bố / Nhé / Lâu / Mày / Nhịn / Đấy / Mày / Lắm', a: 'Bố mày nhịn mày lâu lắm rồi đấy nhé' },
         { q: 'Cùng / Chệu / Khó / Vô', a: 'Khó chệu vô cùng' },
         { q: 'Tại / Khác / Thằng / Tán / Những/ Em / Ngại / Anh / Ngán', a: 'Những thằng khác ngại tán em, tại ngán anh' },
         { q: 'Thế / Làm / Ở / Tôi / Chúng / Đây / Không ', a: 'Ở đây chúng tôi không làm thế' },
@@ -133,34 +133,34 @@
         { q: 'Phới / Đỉnh / Kịch / Bay / Trần / Nóc / Phấp', a: 'Đỉnh nóc kịch trần bay phấp phới' },
       ],
       [
-        { q: 'Thủ / Báo / Bộ / Tứ ', a: 'Bộ tứ báo thủ' },
-        { q: 'Yêu / Học / Bạn / Đôi', a: 'Đôi bạn học yêu' },
-        { q: 'Nguy / Quá / Hiểm / Nhanh / Quá', a: 'Quá nhanh quá nguy hiểm' },
+        { q: 'Chuyện / Tử / Câu / Núi / Sư / Dưới', a: 'Câu chuyện dưới núi sư tử' },
+        { q: 'Bốn / Có / Trọ / Chiêu / Nhà / Cô', a: 'Nhà trọ có bốn cô chiêu' },
+        { q: 'Của / Nhân / Sát / Kiểm / Viện / Tội', a: 'Tội nhân của viện kiểm sát' },
         { q: 'Anh / Nội / Của / Là / Em / Bà', a: 'Em là bà nội của anh' },
-        { q: 'Trại / Thành / Long / Cửu', a: 'Cửu Long thành trại ' },
+        { q: 'Con / Con / Người / Anh / Em / Ta / Con', a: 'Con anh con em con người ta' },
         { q: 'Tình / Xưa / Ngày / Có / Một / Chuyện', a: 'Ngày xưa có một chuyện tình' },
-        { q: 'Thi / Vụ / Nhiệm / Bất / Khả', a: 'Nhiệm vụ bất khả thi' },
+        { q: 'Một / Sao / Đong / Làm / Đếm / Năm', a: 'Làm sao đong đếm một năm' },
         { q: 'Giải / binh / Ngân / Hà / Vệ', a: 'Vệ binh giải ngân hà' },
         { q: 'Mẹ / Con / Trai / Bạn', a: 'Con trai bạn mẹ' },
-        { q: 'lật / Ba / Kèo / Mặt', a: 'Ba mặt lật kèo' }
+        { q: 'Vì / Gặp / Em / Chỉ / Được / Phút Giây', a: 'Chỉ vì giây phút được gặp em' }
       ],
       [
-        { q: 'Lỗi / Xin / Về / Lời / Vụng', a: 'Lời xin lỗi vụng về' },
+        { q: 'Say / Không / Càng / Muốn / Lại / Yêu / Đắm', a: 'Không muốn yêu lại càng say đắm' },
         { q: 'Qua / Cho / Giữ / Ngày / Anh', a: 'Giữ anh cho ngày hôm qua' },
-        { q: 'Hơn / Còn / Đẹp / Gì', a: 'Còn gì đẹp hơn' },
+        { q: 'Nơi / Có / Thế / Một / Như', a: 'Có một nơi như thế' },
         { q: 'Em / Một / Khác / Trai / Rồi / Gặp / Sẽ / Chàng', a: 'Rồi em sẽ gặp một chàng trai khác' },
-        { q: 'Nhau / Mình / Rồi / Sẽ / Gặp', a: 'Rồi mình sẽ gặp nhau' },
+        { q: 'Kỉ / Nhau / Tin / Một / Mình / Anh / Niệm / Cho / Đã', a: 'Anh tin mình đã cho nhau một kỉ niệm' },
         { q: 'Cờ / Tôi / Có / Nhà / Treo / Lá / Một', a: 'Nhà tôi có treo một lá cờ' },
         { q: 'Mà / Lo / Anh / Đợi / Đừng', a: 'Đừng lo anh đợi mà' },
-        { q: 'Em / Tình / Yêu / Cờ', a: 'Tình cờ yêu em ' },
+        { q: 'Chưa / Vì / Khóc / Giờ / Bao / Em', a: 'Vì em chưa bao giờ khóc' },
         { q: 'Quên / Hứa / Lời / Những / Bỏ', a: 'Những lời hứa bỏ quên' },
         { q: 'Trời / Tội / Anh / Làm / Chưa / Ông', a: 'Ông trời làm tội anh chưa' }
       ],
       [
         { q: 'Thấy / Tôi / Vàng / Cỏ / Hoa / Xanh / Trên', a: 'Tôi thấy hoa vàng trên cỏ xanh' },
-        { q: 'Xa / Thuyền / Ngoài / Chiếc', a: 'Chiếc thuyền ngoài xa' },
+        { q: 'Phía / Hươu / Tây / Cao / Có / Cổ / Đàn', a: 'Phía Tây có đàn hươu cao cổ' },
         { q: 'Đặt / Cho / Ai / Đã / Sông / Tê / Dòng', a: 'Ai đã đặt tên cho dòng sông' },
-        { q: 'Lái / Đà / Người / Sông / Đò', a: 'Người lái đò sông đà' },
+        { q: 'Có / Con / Năm / Mèo / Tìm / Đi / Ngàn', a: 'Có con mèo đi tìm ngàn năm' },
         { q: 'Dương / Đám / Ở / Trẻ / Đại / Đen', a: 'Đám trẻ ở đại dương đen' },
         { q: 'Mái / Để / Trốn / Nhà / Lên / Khóc', a: 'Trốn lên mái nhà để khóc' },
         { q: 'Chuyện / Tokyo / Những / Lạ / Ở', a: 'Những chuyện lạ ở Tokyo' },
@@ -186,7 +186,7 @@
     let currentPackageIndex = -1;
     let index = 0;
     let timer;
-    let timeLeft = 6;
+    let timeLeft = 5;
 
     function choosePackage(num) {
       currentPackage = packages[num];
@@ -196,7 +196,6 @@
       document.getElementById('answer').innerText = "";
       document.getElementById('timer').innerText = "";
       document.getElementById('startBtn').style.display = 'inline-block';
-      document.getElementById('nextBtn').style.display = 'none';
     }
 
     function startGame() {
@@ -209,7 +208,6 @@
         document.getElementById('question').innerText = `Hết câu hỏi - ${packageNames[currentPackageIndex]}`;
         document.getElementById('answer').innerText = "";
         document.getElementById('timer').innerText = "";
-        document.getElementById('nextBtn').style.display = 'none';
 
         // disable package button
         document.getElementById("pkg" + currentPackageIndex).disabled = true;
@@ -218,8 +216,7 @@
       }
       document.getElementById('question').innerText = currentPackage[index].q;
       document.getElementById('answer').innerText = "";
-      document.getElementById('nextBtn').style.display = 'none';
-      timeLeft = 6;
+      timeLeft = 5;
       document.getElementById('timer').innerText = `Thời gian: ${timeLeft}s`;
       timer = setInterval(() => {
         timeLeft--;
@@ -227,15 +224,12 @@
         if (timeLeft <= 0) {
           clearInterval(timer);
           document.getElementById('answer').innerText = currentPackage[index].a;
-          document.getElementById('nextBtn').style.display = 'inline-block';
+          setTimeout(() => {
+            index++;
+            showQuestion();
+          }, 2000); // hiện đáp án 2s rồi tự chuyển câu
         }
       }, 1000);
-    }
-
-    function nextQuestion() {
-      clearInterval(timer);
-      index++;
-      showQuestion();
     }
   </script>
 </body>
