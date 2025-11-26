@@ -81,12 +81,12 @@
 <body>
   <h1>Đảo Từ</h1>
   <div class="package-select">
-    <button onclick="choosePackage(0)" id="pkg0">Ca Dao Tục Ngữ</button>
-    <button onclick="choosePackage(1)" id="pkg1">Các câu meme</button>
-    <button onclick="choosePackage(2)" id="pkg2">Phim ảnh</button>
-    <button onclick="choosePackage(3)" id="pkg3">Âm nhạc</button>
-    <button onclick="choosePackage(4)" id="pkg4">Văn học</button>
-    <button onclick="choosePackage(5)" id="pkg5">Kiến thức chung</button>
+    <button onclick="choosePackage(0)" id="pkg0">CA DAO TỤC NGỮ</button>
+    <button onclick="choosePackage(1)" id="pkg1">GIAO THÔNG</button>
+    <button onclick="choosePackage(2)" id="pkg2">PHIM ẢNH</button>
+    <button onclick="choosePackage(3)" id="pkg3">ÂM NHẠC</button>
+    <button onclick="choosePackage(4)" id="pkg4">VĂN HỌC</button>
+    <button onclick="choosePackage(5)" id="pkg5">KIẾN THỨC CHUNG</button>
   </div>
 
   <div class="question-box">
@@ -98,87 +98,87 @@
 
   <script>
     const packageNames = [
-      "Ca Dao Tục Ngữ",
-      "Các câu meme",
-      "Phim ảnh",
-      "Âm nhạc",
-      "Văn học",
-      "Kiến thức chung"
+      "CA DAO TỤC NGỮ",
+      "GIAO THÔNG",
+      "PHIM ẢNH",
+      "ÂM NHẠC",
+      "VĂN HỌC",
+      "KIẾN THỨC CHUNG"
     ];
 
 
     const packages = [
       [
         { q: 'Túng / Liều / Làm / Ăn / Đói / Vụng', a: 'Đói ăn vụng túng làm liều' },
-        { q: 'Thật / Nói / Ăn / Tật / Ngay / Mọi / Lành / Mọi', a: 'Ăn ngay nói thật, mọi tật mọi lành' },
-        { q: 'Đắm / Cá / Đuối / Con / Vì / Chuối ', a: 'Cá chuối đắm đuối vì con' },
-        { q: 'Chèo / Thấy / Rã / Mà / Chớ / Tay / Sóng / Cả ', a: 'Chớ thấy sóng cả mà rã tay chèo' },
-        { q: 'Bạn / Tri / Bè / Nghĩa / Là / Tương', a: 'Bạn bè là nghĩa tương tri' },
-        { q: 'Mua / Em / Gần / Giềng / Bán / Xa / Anh / Láng', a: 'Bán anh em xa mua láng giềng gần' },
-        { q: 'Cay / Càng / Gừng / Già / Càng', a: 'Gừng càng già càng cay' },
-        { q: 'Gần / Gần / Chó / Gà / Chuồng / Cậy / Nhà / Cậy', a: 'Chó cậy gần nhà, gà cậy gần chuồng' },
-        { q: 'Về / Chú / Dối / Nhà / Cha/ Đi / Dối', a: 'Đi dối cha về dối chú' },
-        { q: 'Được / Bán / Thua / Người / Mua / Người', a: 'Được người mua thua người bán' }
+        { q: 'Giàu / Đời / Họ / Ba / Ba / Khó / Ai / Ai', a: 'Ai giàu ba họ, ai khó ba đời' },
+        { q: 'Chính / Loạn / Thượng / Bất / Tắc / Hạ', a: 'Thượng bất chính hạ tắc loạn' },
+        { q: 'Cỗ / Sau / Đi / Đi / Ăn / Nước / Lội / Trước', a: 'Ăn cỗ đi trước lội nước về sau' },
+        { q: 'Họ / Bắt / Sang / Quàng / Thấy / Làm', a: 'Thấy sang bắt quàng làm họ' },
+        { q: 'Bắt / Mặt / Trông / Hình / Mà / Dong', a: 'Trông mặt mà bắt hình dong' },
+        { q: 'Mất / Của / Bụt / Đền / Mười / Một', a: 'Của bụt mất một đền mười' },
+        { q: 'Gạo / Tiền / Mạnh / Bạo / Về / Về', a: 'Mạnh về gạo bạo về tiền' },
+        { q: 'Nói /Làm / Muốn / Oan / Mà / Quan / Nói', a: 'Muốn nói oan làm quan mà nói' },
+        { q: 'Thắm / Tiền / Nhiều / Tiền / Thì / Ít / Phai / Thì', a: 'Nhiều tiền thì thắm ít tiền thì phai' }
       ],
       [
-        { q: 'Biến / Mày / Tao / Tỷ / Bốn / Tao / Mày / Đưa / Kêu / Biến / Không / Mày', a: 'Tao đưa mày bốn tỷ, tao kêu mày biến, máy biến không' },
-        { q: 'Tối / Em / Đi / Dự / Do / Còn / Trời / Mất / Đi', a: 'Đi đi em còn do dự trời tối mất' },
-        { q: 'Phải / Chịu / Không / Chịu / Cũng / Không / Chịu', a: 'Chịu không, không chịu cũng phải chịu' },
-        { q: 'Gia / Thua / Lượng / Mỗi / Quạt / Cát / Cái ', a: 'Thua Gia Cát Lượng mỗi cái quạt' },
-        { q: 'Phần / Còn / Nội / Hết / Hướng / Lại / Đời ', a: 'Hướng nội hết phần đời còn lại' },
-        { q: 'Lắm / Xui / Vậy / Mới / Hên / Được / Như', a: 'Hên lắm mới xui được như vậy' },
-        { q: 'Thưa / Xét / Kính / Đồng / Xử / Hội', a: 'Kính thưa hội đồng xét xử' },
-        { q: 'Kiểu / Chưa / Giỡn / Thân / Mà / Đó', a: 'Thân chưa mà giỡn kiểu đó' },
-        { q: 'Có / Đầu / Tôm / Trong / Mỳ / Long / Trái / Tiên / Thanh / Lần ', a: 'Lần đầu tiên trái thanh long có trong mỳ tôm' },
-        { q: 'Không / Biết / Thương / Ông / ', a: 'Biết ông Thương không' },
+        { q: 'Giao / Nhau / Buộc / Hướng / Bắt / Đi / Nơi', a: 'Hướng đi bắt buộc nơi giao nhau' },
+        { q: 'Làn / Xe / Xe / Cho / Khách / Dành', a: 'Làn xe dành cho xe khách' },
+        { q: 'Đường / Vạch / Làn / Kẻ / Chuyển / Tốc', a: 'Vạch kẻ chuyển tốc làn đường' },
+        { q: 'Ô / Dài / Chiều / Xe / Chế / Tô / Hạn', a: 'Hạn chế chiều dài xe ô tô' },
+        { q: 'Đường / Bên / Bị / Cả / Hẹp / Hai', a: 'Đường bị hẹp cả hai bên' },
+        { q: 'Giao / Hai / Chiều / Nhau / Đường / Với', a: 'Giao nhau với đường hai chiều' },
+        { q: 'Chú / Chướng / Trước / Phía / Vật / Ý / Ngại', a: 'Chú ý chướng ngại vật phía trước' },
+        { q: 'Theo / Nơi / Vòng / Giao / Nhau / Chạy / Xuyến', a: 'Nơi giao nhau chạy theo vòng xuyến' },
+        { q: 'Vượt / Qua / Cầu / Đường / Cắt / Tuyến', a: 'Tuyến đường cầu vượt cắt qua' },
+        { q: 'Kẻ / Hướng / Đi / Vạch / Theo / Đường', a: 'Hướng đi theo vạch kẻ đường' },
       ],
       [
-        { q: 'Đường / Cùng / Giây / Những / Cuối / Thiên / Tới', a: 'Những giây cuối cùng tới thiên đường' },
-        { q: 'Bốn / Có / Trọ / Chiêu / Nhà / Cô', a: 'Nhà trọ có bốn cô chiêu' },
-        { q: 'Tim / Trình / Hành / Anh / Đến / Trái', a: 'Hành trình đến trái tim anh' },
-        { q: 'Hôn / Sau / Ánh / Mật / Hoàng / Bí', a: 'Bí mật sau ánh hoàng hôn' },
-        { q: 'Con / Con / Người / Anh / Em / Ta / Con', a: 'Con anh con em con người ta' },
-        { q: 'Ta / Nhau / Khắc / Thuộc / Khoảnh / Về', a: 'Khoảnh khắc ta thuộc về nhau' },
-        { q: 'Một / Sao / Đong / Làm / Đếm / Năm', a: 'Làm sao đong đếm một năm' },
-        { q: 'Nhân / Ức / Của / Ký / Kẻ / Sát', a: 'Ký ức của kẻ sát nhân' },
-        { q: 'Em / Cười / Đẹp / Khi / Rất / Mỉm', a: 'Khi em mỉm cười rất đẹp' },
-        { q: 'Vì / Gặp / Em / Chỉ / Được / Phút Giây', a: 'Chỉ vì giây phút được gặp em' }
+        { q: 'Trăng / Mệnh / Hoán / Sông', a: 'Sông Trăng Hoán Mệnh' },
+        { q: 'Kỳ / Tay / Ngón / Diệu / Năm', a: 'Năm ngón tay diệu kỳ' },
+        { q: 'Mơ / Kim / Sống / Của / Trong / Ông / Cuộc', a: 'Cuộc sống trong mơ của ông Kim' },
+        { q: 'Điền / Tình / Ký / Mối / Viên / Nhật', a: 'Nhật ký mối tình điền viên' },
+        { q: 'Ảo / Lưới / Trong / Gái / Nhện / Cô', a: 'Cô gái trong lưới nhện ảo' },
+        { q: 'Cha / Của / Trai / Con / Ngàn / Người', a: 'Con trai của ngàn người cha' },
+        { q: 'Yêu / Rỡ / Trình / Hành / Rực / Ta / Đã', a: 'Hành trình rực rỡ ta đã yêu' },
+        { q: 'Dĩ / Phạm / Đắc / Đồng / Bất', a: 'Đồng phạm bất đắc dĩ' },
+        { q: 'Mèo / Dành / Nuôi / Chiến / Cuộc / Quyền', a: 'Cuộc chiến dành quyền nuôi mèo' },
+        { q: 'Cứu / Đảo / Giải / Cực / Đông', a: 'Giải cứu đảo Đông Cực' }
       ],
       [
-        { q: 'Say / Không / Càng / Muốn / Lại / Yêu / Đắm', a: 'Không muốn yêu lại càng say đắm' },
+        { q: 'Quên / Em / Cố / Mong / Sẽ', a: 'Mong em sẽ cố quên' },
         { q: 'Không / Yêu / Trung / Ném / Câu / Vào /', a: 'Ném câu yêu vào không trung' },
-        { q: 'Thôi / Một / Chỉ / Nữa / Đêm', a: 'Chỉ một đêm nữa thôi' },
-        { q: 'Em / Một / Khác / Trai / Rồi / Gặp / Sẽ / Chàng', a: 'Rồi em sẽ gặp một chàng trai khác' },
-        { q: 'Kỉ / Nhau / Tin / Một / Mình / Anh / Niệm / Cho / Đã', a: 'Anh tin mình đã cho nhau một kỉ niệm' },
-        { q: 'Cờ / Tôi / Có / Nhà / Treo / Lá / Một', a: 'Nhà tôi có treo một lá cờ' },
-        { q: 'Của / Ta / Hiện / Chúng / Tại', a: 'Chúng ta của hiện tại' },
-        { q: 'Chưa / Vì / Khóc / Giờ / Bao / Em', a: 'Vì em chưa bao giờ khóc' },
-        { q: 'Tình / Thu / Cuối / Mùa / Thu', a: 'Thư tình cuối mùa thu' },
-        { q: 'Veo / Mai / Sương / Trong', a: 'Sương mai trong veo' }
+        { q: 'Lời / Yếu / Nói / Chẳng / Đuối / Nên', a: 'Yếu đuối chẳng nói nên lời' },
+        { q: 'Phải / Sao / Đến / Đau / Chẳng / Tình / Thế / Đầu', a: 'Chẳng phải tình đầu sao đau đến thế' },
+        { q: 'Biết / Em / Đã / Không / Anh / Yêu / Cách', a: 'Anh đã không biết cách yêu em' },
+        { q: 'Rồi / Hôm / Em  / Cưới / Nay', a: 'Hôm nay em cưới rồi' },
+        { q: 'Còn / Đau / Gì / Từng / Hơn / Chữ / Đã', a: 'Còn gì đau hơn chữ đã từng' },
+        { q: 'Ta / Không / Ở / Chúng / Đó / Còn', a: 'Chúng ta còn ở đó không' },
+        { q: 'Tay / Sau / Đầu / Chia / Ngày', a: 'Ngày đầu sau chia tay' },
+        { q: 'Đơn / Chẳng / Yêu / Cô / Cũng / Không', a: 'Không yêu cũng chẳng cô đơn' }
       ],
       [
-        { q: 'Giới / Yêu / Thầm / Em / Âm / Này / Thế', a: 'Thế giới này âm thầm yêu em' },
-        { q: 'Mái / Câu / Bồ / Vòm / Chung', a: 'Bồ câu chung mái vòm' },
-        { q: 'Đã / Lớn / Kịp / Thành / Chưa / Trưởng', a: 'Chưa kịp lớn đã trưởng thành' },
-        { q: 'Có / Con / Năm / Mèo / Tìm / Đi / Ngàn', a: 'Có con mèo đi tìm ngàn năm' },
+        { q: 'Người / Bạn / Khi / Mơ / Nỗ / Đang / Thì / Lực / Khác', a: 'Khi bạn đang mơ thì người khác đang nỗ lực' },
+        { q: 'Đổi / Đổi / Thay / Ta / Khi / Đời / Chúng / Thay', a: 'Đời thay đổi khi chúng ta thay đổi' },
+        { q: 'Lòng / Cao / Tấm / Cả / Những', a: 'Những tấm lòng cao cả' },
+        { q: 'Đời / Lặng / Người / Giữa / Im / Cha / Cuộc', a: 'Người cha im lặng giữa cuộc đời' },
         { q: 'Đi / Non / Giày / Chuối / Xanh / Cây', a: 'Cây chuối non đi giày xanh' },
-        { q: 'Hiểm / Cuộc / Thám / Vào / Lòng / Đất', a: 'Cuộc thám hiểm vào lòng đất' },
-        { q: 'Tội / Những / Bức / Ác / Tranh / Sau', a: 'Tội ác sau những bức tranh' },
-        { q: 'Năm / Tuần / Khí / Trên / Lễ / Cầu / Khinh', a: 'Năm tuần lễ trên khinh khí cầu' },
-        { q: 'Mơ / Bên / Kia / Dương / Đại / Giấc', a: 'Giấc mơ bên kia đại dương' },
-        { q: 'Nỗi / Thành / Đơn / Trưởng / Cùng / Cô', a: 'Trưởng thành cùng nỗi cô đơn' }
+        { q: 'Rơi / Nhặt / Bà / Sương / Người / Đàn / Hạt', a: 'Người đàn bà nhặt hạt sương rơi' },
+        { q: 'Ai / Không / Hồng / Cho / Dành / Hoa', a: 'Hoa hồng không dành cho ai' },
+        { q: 'Cảm / Lính / Chú / Dũng / Chì', a: 'Chú lính chì dũng cảm' },
+        { q: 'Tôi / Cải / Mùa / Bên / Sông / Hoa / Quê', a: 'Mùa hoa cải bên sông quê tôi' },
+        { q: 'Khác / Lại / Gặp / Một / Ngày', a: 'Gặp lại một ngày khác' }
       ],
       [
-        { q: 'Trúc / Hệ / Cấu / Của / Trời / Mặt', a: 'Cấu trúc của hệ mặt trời' },
-        { q: 'Bố / Chấn / Sóng / Địa / Phân', a: 'Phân bố sóng địa chấn' },
-        { q: 'Trụ / Của / Sử / Lịch / Vũ / Sơ / Nguyên', a: 'Lịch sử nguyên sơ của vũ trụ' },
-        { q: 'Đá / Của / Tính / Thấm / Nước', a: 'Tính thấm nước của đá' },
-        { q: 'Lớp / Sinh / Nguyên / Tố / Tự', a: 'Lớp nguyên tố tự sinh' },
-        { q: 'Vật / Hình / Trình / Liệu / Thành / Quá', a: 'Quá trình hình thành vật liệu' },
-        { q: 'Tính / Mặt / Bề / Tục / Liên', a: 'Tính liên tục bề mặt' },
-        { q: 'Phương / Địa / Sinh / Tầng / Pháp', a: 'Phương pháp sinh địa tầng' },
-        { q: 'Sống / Không / Xương / Động / Vật', a: 'Động vật không xương sống' },
-        { q: 'Sông / Hình / Thành / Sự / Thềm', a: 'Sự hình thành thềm sông' }
+        { q: 'Xạ / Sáng / Ra / Nhiễu / Xảy / Với / Ánh', a: 'Nhiễu xạ xảy ra với ánh sáng' },
+        { q: 'Không / Trong / Sóng / Điện / Chân / Từ', a: 'Sóng điện từ trong chân không' },
+        { q: 'Đổi / Khí / Cầu / Biến / Toàn / Hậu', a: 'Biến đổi khí hậu toàn cầu' },
+        { q: 'Bình / Số / Dân / Độ / Mật / Trung', a: 'Mật độ dân số trung bình' },
+        { q: 'Tự / Sinh / Bằng / Cân / Nhiên / Thái', a: 'Cân bằng sinh thái tự nhiên' },
+        { q: 'Cổ / Đông / Văn / Minh / Nền / Đại / Phương', a: 'Nền văn minh cổ đại Phương Đông' },
+        { q: 'Nước / Của / Vòng / Hoàn / Tuần', a: 'Vòng tuần hoàn của nước' },
+        { q: 'Học / Suất / Hiệu / Nhiệt / Động', a: 'Hiệu suất nhiệt động học' },
+        { q: 'Chuyển / Kiến / Tạo / Dịch / Mảng', a: 'Dịch chuyển mảng kiến tạo' },
+        { q: 'Vật / Sinh / Dưỡng / Hệ / Dinh / Giữa', a: 'Hệ Dinh Dưỡng Giữa Sinh Vật' }
       ]
     ];
 
